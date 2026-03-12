@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    @apply bg-gradient-to-br from-calm-900 via-calm-800 to-[#1a1f5e] text-calm-50 font-sans min-h-screen antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-calm-600 rounded-full; }
+}
+
+@layer components {
+  /* Glass card */
+  .glass {
+    @apply bg-white/[0.06] backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  /* Calm button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           bg-gradient-to-r from-calm-500 to-calm-400 text-white font-semibold
+           shadow-lg shadow-calm-900/40 hover:from-calm-400 hover:to-calm-300
+           transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           border border-white/20 text-calm-200 hover:bg-white/10 hover:text-white
+           transition-all duration-200 active:scale-95;
+  }
+
+  /* Input */
+  .input-calm {
+    @apply w-full bg-white/[0.07] border border-white/15 rounded-xl px-4 py-3
+           text-calm-50 placeholder:text-calm-400 focus:outline-none focus:border-calm-400
+           focus:bg-white/10 transition-all duration-200;
+  }
+
+  /* Chat bubbles */
+  .bubble-user {
+    @apply bg-gradient-to-br from-calm-500 to-calm-600 text-white rounded-2xl rounded-br-sm
+           px-4 py-3 max-w-[78%] shadow-lg shadow-calm-900/30 animate-slide-up;
+  }
+
+  .bubble-ai {
+    @apply bg-white/[0.09] border border-white/10 text-calm-100 rounded-2xl rounded-bl-sm
+           px-4 py-3 max-w-[78%] shadow-md animate-slide-up;
+  }
+
+  /* Sentiment pill */
+  .pill {
+    @apply inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full;
+  }
+
+  /* Nav link */
+  .nav-link {
+    @apply flex items-center gap-2 px-4 py-2.5 rounded-xl text-calm-300
+           hover:text-white hover:bg-white/10 transition-all duration-200 text-sm font-medium;
+  }
+
+  .nav-link.active {
+    @apply text-white bg-white/15;
+  }
+}
